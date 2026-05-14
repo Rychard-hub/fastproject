@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3217636-934f-4745-9a31-2594e9f725fa" name="Changes" comment="I changed project structure, it needs to deploy in DigitalOcean droplet. With docker-compose.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nginx/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/nginx/nginx.conf" afterDir="false" />
+    <list default="true" id="b3217636-934f-4745-9a31-2594e9f725fa" name="Changes" comment="I changed nginx/nginx.conf , and docker-compose.yml remove certbot, it needs to deploy in DigitalOcean droplet.">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/certbot/conf/accounts/acme-v02.api.letsencrypt.org/directory/1abc3861d1836f3aa6576ecb22b49ca9/meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certbot/conf/accounts/acme-v02.api.letsencrypt.org/directory/1abc3861d1836f3aa6576ecb22b49ca9/private_key.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certbot/conf/accounts/acme-v02.api.letsencrypt.org/directory/1abc3861d1836f3aa6576ecb22b49ca9/regr.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +33,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Rychard-hub"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Rychard-hub/fastproject.git",
+    "accountId": "31457284-cf29-40aa-a560-154c86c62f16"
+  }
+}]]></component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
@@ -249,7 +262,7 @@
       <workItem from="1778511672353" duration="14948000" />
       <workItem from="1778611666599" duration="6549000" />
       <workItem from="1778671057678" duration="6868000" />
-      <workItem from="1778764062408" duration="9298000" />
+      <workItem from="1778764062408" duration="10167000" />
     </task>
     <task id="LOCAL-00001" summary="I changed project structure,">
       <option name="closed" value="true" />
@@ -275,7 +288,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778684786019</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="I changed nginx/nginx.conf , and docker-compose.yml remove certbot, it needs to deploy in DigitalOcean droplet.">
+      <option name="closed" value="true" />
+      <created>1778786556429</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1778786556430</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,7 +319,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="I changed project structure," />
     <MESSAGE value="I changed project structure, it needs to deploy in DigitalOcean droplet. With docker-compose." />
-    <option name="LAST_COMMIT_MESSAGE" value="I changed project structure, it needs to deploy in DigitalOcean droplet. With docker-compose." />
+    <MESSAGE value="I changed nginx/nginx.conf , and docker-compose.yml remove certbot, it needs to deploy in DigitalOcean droplet." />
+    <option name="LAST_COMMIT_MESSAGE" value="I changed nginx/nginx.conf , and docker-compose.yml remove certbot, it needs to deploy in DigitalOcean droplet." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
