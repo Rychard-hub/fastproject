@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3217636-934f-4745-9a31-2594e9f725fa" name="Changes" comment="I successfully removed Certbot from the project delyted ,certbot/, directory and all its contents.">
-      <change beforePath="$PROJECT_DIR$/frontend/.dockerignore" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.dockerignore" afterDir="false" />
+    <list default="true" id="b3217636-934f-4745-9a31-2594e9f725fa" name="Changes" comment="I changed nginx/nginx.conf , and docker-compose.yml remove certbot, it needs to deploy in DigitalOcean droplet.">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/certbot/conf/accounts/acme-v02.api.letsencrypt.org/directory/1abc3861d1836f3aa6576ecb22b49ca9/meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certbot/conf/accounts/acme-v02.api.letsencrypt.org/directory/1abc3861d1836f3aa6576ecb22b49ca9/private_key.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certbot/conf/accounts/acme-v02.api.letsencrypt.org/directory/1abc3861d1836f3aa6576ecb22b49ca9/regr.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,7 +262,7 @@
       <workItem from="1778511672353" duration="14948000" />
       <workItem from="1778611666599" duration="6549000" />
       <workItem from="1778671057678" duration="6868000" />
-      <workItem from="1778764062408" duration="12066000" />
+      <workItem from="1778764062408" duration="10167000" />
     </task>
     <task id="LOCAL-00001" summary="I changed project structure,">
       <option name="closed" value="true" />
@@ -293,15 +296,7 @@
       <option name="project" value="LOCAL" />
       <updated>1778786556430</updated>
     </task>
-    <task id="LOCAL-00005" summary="I successfully removed Certbot from the project delyted ,certbot/, directory and all its contents.">
-      <option name="closed" value="true" />
-      <created>1778787439300</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1778787439300</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -325,8 +320,7 @@
     <MESSAGE value="I changed project structure," />
     <MESSAGE value="I changed project structure, it needs to deploy in DigitalOcean droplet. With docker-compose." />
     <MESSAGE value="I changed nginx/nginx.conf , and docker-compose.yml remove certbot, it needs to deploy in DigitalOcean droplet." />
-    <MESSAGE value="I successfully removed Certbot from the project delyted ,certbot/, directory and all its contents." />
-    <option name="LAST_COMMIT_MESSAGE" value="I successfully removed Certbot from the project delyted ,certbot/, directory and all its contents." />
+    <option name="LAST_COMMIT_MESSAGE" value="I changed nginx/nginx.conf , and docker-compose.yml remove certbot, it needs to deploy in DigitalOcean droplet." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
