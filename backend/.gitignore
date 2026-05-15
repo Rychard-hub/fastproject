@@ -1,0 +1,44 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
+.env.*
+
+# IDE / Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+*.out
+
+# Python packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Pytest / coverage
+.coverage
+htmlcov/
+.cache/
+pytest_cache/
+
+# Docker
+docker-compose.override.yml
+
+# Local config
+*.local
