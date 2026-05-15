@@ -83,6 +83,10 @@ register_tortoise(
     add_exception_handlers=True,
 )
 
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
 @app.get("/")
 async def home():
     return {
