@@ -1,0 +1,69 @@
+# ============================
+# GLOBAL IGNORE (ROOT PROJECT)
+# ============================
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE / Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+*.out
+
+# Environment files
+.env
+.env.*
+*.local
+
+# Python cache (backend)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Python virtual environments
+venv/
+env/
+.venv/
+
+# Python build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Node (frontend)
+node_modules/
+dist/
+dist-ssr/
+
+# Docker
+docker-compose.override.yml
+docker-data/
+certbot/
+certs/
+*.pid
+
+# Git
+.gitignore
+
+# Test / Coverage
+pytest_cache/
+.coverage
+htmlcov/
+.cache/
+
+# Documentation
+*.md
+
+# Misc
+*.tmp
+*.bak
+*.swp

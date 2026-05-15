@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3217636-934f-4745-9a31-2594e9f725fa" name="Changes" comment="I changed nginx/nginx.conf , and docker-compose.yml remove certbot, it needs to deploy in DigitalOcean droplet.">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/certbot/conf/accounts/acme-v02.api.letsencrypt.org/directory/1abc3861d1836f3aa6576ecb22b49ca9/meta.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/certbot/conf/accounts/acme-v02.api.letsencrypt.org/directory/1abc3861d1836f3aa6576ecb22b49ca9/private_key.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/certbot/conf/accounts/acme-v02.api.letsencrypt.org/directory/1abc3861d1836f3aa6576ecb22b49ca9/regr.json" beforeDir="false" />
-    </list>
+    <list default="true" id="b3217636-934f-4745-9a31-2594e9f725fa" name="Changes" comment=".dockerignore is a very important file because it:&#10;prevents unnecessary files from being included in the Docker build" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,20 +26,21 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Rychard-hub"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Rychard-hub&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Rychard-hub/fastproject.git",
-    "accountId": "31457284-cf29-40aa-a560-154c86c62f16"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Rychard-hub/fastproject.git&quot;,
+    &quot;accountId&quot;: &quot;31457284-cf29-40aa-a560-154c86c62f16&quot;
   }
-}]]></component>
+}</component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
@@ -60,37 +56,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Docker.Docker Image.executor": "Run",
-    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
-    "FastAPI.FastProject.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.main.executor": "Run",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "ai.playground.ignore.import.keys.banner.in.settings": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "C:/Users/ACER/Desktop/FastProject",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "to.speed.mode.migration.done": "true",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\PyCharm 2025.2.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Docker.Docker Image.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;FastAPI.FastProject.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;ai.playground.ignore.import.keys.banner.in.settings&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ACER/Desktop/FastProject&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\PyCharm 2025.2.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecapSpentCounter">
     <option name="endsOfQuotaMs" value="1776088840459" />
     <option name="spentUsd" value="0.0827109" />
@@ -113,6 +109,54 @@
     </key>
   </component>
   <component name="RunManager" selected="FastAPI.FastProject">
+    <configuration default="true" type="DjangoTestsConfigurationType">
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="TARGET" value="" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FastProject" />
       <option name="ENV_FILES" value="" />
@@ -138,6 +182,36 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration default="true" type="Python.Celery" factoryName="Python.Celery.App">
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Python.Celery" factoryName="Python.Celery.Task">
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="FastProject" type="Python.FastAPI">
       <option name="file" value="$PROJECT_DIR$/main.py" />
       <module name="FastProject" />
@@ -154,6 +228,36 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
       <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Python.FlaskServer">
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
       <method v="2" />
     </configuration>
     <configuration name="Docker Image" type="docker-deploy" factoryName="docker-image" temporary="true" server-name="Docker">
@@ -189,6 +293,44 @@
           <option name="sourceFilePath" value="docker-compose.yml" />
         </settings>
       </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docs" factoryName="Docutils task">
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <module name="" />
+      <option name="RUN_TOOL" value="" />
+      <option name="docutils_input_file" value="" />
+      <option name="docutils_output_file" value="" />
+      <option name="docutils_params" value="" />
+      <option name="docutils_task" value="" />
+      <option name="docutils_open_in_browser" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docs" factoryName="Sphinx task">
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <module name="" />
+      <option name="RUN_TOOL" value="" />
+      <option name="docutils_input_file" value="" />
+      <option name="docutils_output_file" value="" />
+      <option name="docutils_params" value="" />
+      <option name="docutils_task" value="" />
+      <option name="docutils_open_in_browser" value="false" />
       <method v="2" />
     </configuration>
     <recent_temporary>
