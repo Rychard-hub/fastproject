@@ -4,14 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3217636-934f-4745-9a31-2594e9f725fa" name="Changes" comment=".dockerignore is a very important file because it:&#10;prevents unnecessary files from being included in the Docker build" />
+    <list default="true" id="b3217636-934f-4745-9a31-2594e9f725fa" name="Changes" comment=".dockerignore is a very important file because it:&#10;prevents unnecessary files from being included in the Docker build">
+      <change beforePath="$PROJECT_DIR$/backend/uploads/lake.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/uploads/openshoes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/crakod.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/lakebanner.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/sportsuns.png" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="63" />
+    <option name="cachedIndexableFilesCount" value="5020" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -20,8 +26,8 @@
         <option value="FastAPI main" />
         <option value="FastAPI test_main" />
         <option value="Dockerfile" />
-        <option value="Python Script" />
         <option value="JavaScript File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -405,6 +411,7 @@
       <workItem from="1778611666599" duration="6549000" />
       <workItem from="1778671057678" duration="6868000" />
       <workItem from="1778764062408" duration="10167000" />
+      <workItem from="1778863088429" duration="9727000" />
     </task>
     <task id="LOCAL-00001" summary="I changed project structure,">
       <option name="closed" value="true" />
