@@ -13,6 +13,7 @@ env/
 # IDE / Editor
 .idea/
 .vscode/
+uploads/
 *.swp
 *.swo
 
