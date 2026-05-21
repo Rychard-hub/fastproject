@@ -52,20 +52,14 @@ app = FastAPI(
     title="FastAPI+React Blog",
     description="Blog system with Tortoise ORM and Aerich",
     version="1.0",
-)
+) 
 
-origins = [
-    os.getenv("FRONTEND_DOMAIN"),
-    os.getenv("API_DOMAIN"),
-    os.getenv("BACKEND_DOMAIN")
-]
-# CORS configuration - restrict to specific methods and headers
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[o for o in origins if o],
+    allow_origins=["*"],
     allow_credentials=True,
-    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allow_headers=["Content-Type", "Authorization"],
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 app.include_router(router)
