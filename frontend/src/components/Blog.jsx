@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react'
 import { useR2File } from "../hooks/useR2File";
 
@@ -12,7 +13,7 @@ const API_URL = import.meta.env.VITE_API_URL || '';
  * @property {string|null} file_path
  * @property {string} created_at
  * @property {string} updated_at
- * @property {boolean} published
+ * @property {boolean} publishe
  */
 
 /**
@@ -365,3 +366,4 @@ function Blog() {
 }
 
 export default Blog
+
