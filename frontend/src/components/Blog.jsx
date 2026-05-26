@@ -122,7 +122,6 @@ export function AvatarUploader() {
     deleting,
     error,
     uploadFile,
-    fetchUrl,
     deleteFile
   } = useR2File("http://localhost:8000");
 
