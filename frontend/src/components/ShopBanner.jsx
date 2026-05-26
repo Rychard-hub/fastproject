@@ -11,7 +11,7 @@ export default function ShopBanner() {
     error,
     uploadFile,
     fetchUrl
-  } = useR2File("http://localhost:8000");
+  } = useR2File("http://api.rychdesigns.uk");
 
   const [editMode, setEditMode] = useState(false);
   const [file, setFile] = useState(null);
