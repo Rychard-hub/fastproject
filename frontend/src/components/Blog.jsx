@@ -123,7 +123,7 @@ export function AvatarUploader() {
     error,
     uploadFile,
     deleteFile
-  } = useR2File("http://localhost:8000");
+  } = useR2File("http://api.rychdesigns.uk");
 
   return (
     <div style={{ marginBottom: '20px', padding: '15px', border: '1px dashed #ccc', borderRadius: '8px' }}>
