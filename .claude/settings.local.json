@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /c/Users/ACER/Desktop/FastProject/frontend -type f -name *.env*)"
+    ]
+  }
+}
