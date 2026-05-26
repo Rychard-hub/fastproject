@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import { v4 as uuid } from "uuid";
 
-export function useR2File(apiBase = "http://localhost:8000") {
+export function useR2File(apiBase = "http://api.rychdesigns.uk") {
   const [url, setUrl] = useState("");
   const [objectKey, setObjectKey] = useState("");
   const [loading, setLoading] = useState(false);
