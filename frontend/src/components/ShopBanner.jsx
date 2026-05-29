@@ -3,6 +3,8 @@ import { useR2File } from "../hooks/useR2File";
 
 const BANNER_KEY = "menu/banner/banner.jpg";
 
+const API_URL = import.meta.env.VITE_API_URL || '';
+
 export default function ShopBanner() {
   const {
     url,
@@ -11,7 +13,7 @@ export default function ShopBanner() {
     error,
     uploadFile,
     fetchUrl
-  } = useR2File("http://api.rychdesigns.uk");
+  } = useR2File(API_URL);
 
   const [editMode, setEditMode] = useState(false);
   const [file, setFile] = useState(null);
