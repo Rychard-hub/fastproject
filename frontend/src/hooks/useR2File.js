@@ -1,7 +1,8 @@
 import { useState, useCallback } from "react";
 import { v4 as uuid } from "uuid";
 
-export function useR2File(apiBase = "http://api.rychdesigns.uk") {
+export function useR2File(apiBase = DEFAULT_API_URL) {
+  const DEFAULT_API_URL = import.meta.env.VITE_API_URL || '';
   const [url, setUrl] = useState("");
   const [objectKey, setObjectKey] = useState("");
   const [loading, setLoading] = useState(false);
