@@ -46,6 +46,10 @@ async def home():
 async def health():
     return {"status": "ok"}
 
+@router.get("home/shop")
+async def shop_home():
+    return {"message": "Shop API working"}
+
 @app.get("/portfolio")
 async def get_portfolio():
     return [
