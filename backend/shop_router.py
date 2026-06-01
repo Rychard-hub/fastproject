@@ -238,7 +238,7 @@ async def create_checkout_session(item: CreateCheckoutSessionRequest):
         raise HTTPException(status_code=500, detail=f"Stripe error: {str(e)}")
 
 
-@router.post("/seed-products")
+@router.get("/seed-products")
 async def seed_products():
     """
     Create sample products for the shop
