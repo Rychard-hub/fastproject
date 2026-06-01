@@ -42,6 +42,14 @@ register_tortoise(
 async def home():
     return {"message": "Hello World", "status": "ok"}
 
+@app.get("/health")
+async def health():
+    return {"status": "ok"}
+
+@router.get("home/shop")
+async def shop_home():
+    return {"message": "Shop API working"}
+
 @app.get("/portfolio")
 async def get_portfolio():
     return [

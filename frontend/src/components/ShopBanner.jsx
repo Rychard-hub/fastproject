@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useR2File } from "../hooks/useR2File";
 
 const BANNER_KEY = "menu/banner/banner.jpg";
+const API_URL = import.meta.env.VITE_API_URL || '';
 
 const API_URL = import.meta.env.VITE_API_URL || '';
 

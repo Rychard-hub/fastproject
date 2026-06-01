@@ -132,7 +132,11 @@ const Shop = () => {
                         </div>
                     ))
                 ) : (
+<<<<<<< HEAD
                     <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '40px' }}>
+=======
+                     <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '40px' }}>
+>>>>>>> origin/main
                         <p style={{ fontSize: '18px', color: '#666' }}>
                             No products available yet. Try seeding the database at <code>/shop/seed-products</code>!
                         </p>
