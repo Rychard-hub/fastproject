@@ -3,8 +3,11 @@ import { useR2File } from "../hooks/useR2File";
 
 const BANNER_KEY = "menu/banner/banner.jpg";
 const API_URL = import.meta.env.VITE_API_URL || '';
+<<<<<<< HEAD
 
 const API_URL = import.meta.env.VITE_API_URL || '';
+=======
+>>>>>>> origin/main
 
 export default function ShopBanner() {
   const {

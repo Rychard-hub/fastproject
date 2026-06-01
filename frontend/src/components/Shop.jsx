@@ -133,7 +133,11 @@ const Shop = () => {
                     ))
                 ) : (
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '40px' }}>
+=======
+                     <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '40px' }}>
+>>>>>>> origin/main
 =======
                      <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '40px' }}>
 >>>>>>> origin/main
