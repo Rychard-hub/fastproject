@@ -43,10 +43,13 @@ async def home():
     return {"message": "Hello World", "status": "ok"}
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 @app.get("/health")
 async def health():
     return {"status": "ok"}
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 @router.get("home/shop")
