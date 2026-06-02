@@ -42,34 +42,13 @@ register_tortoise(
 async def home():
     return {"message": "Hello World", "status": "ok"}
 
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
->>>>>>> origin/main
-=======
->>>>>>> origin/main
+
+
 @app.get("/health")
 async def health():
     return {"status": "ok"}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> origin/main
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> origin/main
+
 @router.get("home/shop")
 async def shop_home():
     return {"message": "Shop API working"}

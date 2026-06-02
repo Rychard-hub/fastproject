@@ -1,24 +1,7 @@
 import { useState, useCallback } from "react";
 import { v4 as uuid } from "uuid";
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-const DEFAULT_API_URL = import.meta.env.VITE_API_URL || '';
-
-export function useR2File(apiBase = DEFAULT_API_URL) {
-=======
-export function useR2File(apiBase = DEFAULT_API_URL) {
-  const DEFAULT_API_URL = import.meta.env.VITE_API_URL || '';
->>>>>>> origin/main
-=======
-export function useR2File(apiBase = DEFAULT_API_URL) {
-  const DEFAULT_API_URL = import.meta.env.VITE_API_URL || '';
->>>>>>> origin/main
-=======
-export function useR2File(apiBase = DEFAULT_API_URL) {
-  const DEFAULT_API_URL = import.meta.env.VITE_API_URL || '';
->>>>>>> origin/main
+export const useR2File = (apiBase) => {
   const [url, setUrl] = useState("");
   const [objectKey, setObjectKey] = useState("");
   const [loading, setLoading] = useState(false);
