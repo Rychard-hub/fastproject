@@ -4,6 +4,8 @@ from dotenv import load_dotenv
 # In Docker, environment variables are passed via docker-compose
 if os.path.exists(".env"):
     load_dotenv()
+elif os.path.exists("../.env"):
+    load_dotenv("../.env")
 DATABASE_URL = os.getenv("DATABASE_URL")
 if not DATABASE_URL:
     # Build database URL from individual components

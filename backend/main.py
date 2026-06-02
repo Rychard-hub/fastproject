@@ -8,7 +8,10 @@ from routers import router
 from shop_router import router as shop_router
 from database import DATABASE_URL
 
-load_dotenv()
+if os.path.exists(".env"):
+    load_dotenv()
+elif os.path.exists("../.env"):
+    load_dotenv("../.env")
 
 app = FastAPI(title="FastAPI+React Blog", version="1.0")
 
