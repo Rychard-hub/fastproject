@@ -41,11 +41,11 @@ dist/
 
 # Node (frontend)
 node_modules/
-dist/
-dist-ssr/
+dist/-ssr/
 
 # Docker
 docker-compose.override.yml
+docker-compose.yml
 docker-data/
 certbot/
 certs/
@@ -66,4 +66,4 @@ htmlcov/
 # Misc
 *.tmp
 *.bak
-*.swp
+
