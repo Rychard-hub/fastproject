@@ -61,7 +61,8 @@ async def get_portfolio():
     return [
         {"title": "Project 1", "description": "FastAPI + React", "link": "https://github.com"},
         {"title": "Project 2", "description": "Blog with Tortoise ORM", "link": "https://github.com"},
-        {"title": "Project 3", "description": "Dockerized architecture", "link": "https://github.com"}
+        {"title": "Project 3", "description": "Dockerized architecture", "link": "https://github.com"},
+        {"title": "Face exercise", "description": "Natural Wellness, Face Yoga & Exercises", "link": "#face-yoga"}
     ]
 
 if __name__ == "__main__":

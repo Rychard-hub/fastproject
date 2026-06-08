@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import FaceExercise from './FaceExercise';
 
 const API_URL = import.meta.env.VITE_API_URL || '';
 
@@ -44,6 +45,7 @@ const Portfolio = () => {
           </div>
         ))}
       </div>
+      <FaceExercise />
     </div>
   );
 };

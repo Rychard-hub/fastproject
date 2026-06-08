@@ -10,7 +10,7 @@ import shutil
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
 
-from models import BlogPost, BlogPost_Pydantic, BlogPostIn_Pydantic
+from models import BlogPost, BlogPost_Pydantic, BlogPostIn_Pydantic, Benefit, Routine, ProTip, Benefit_Pydantic, Routine_Pydantic, ProTip_Pydantic
 from r2_service import r2_service
 
 router = APIRouter(
@@ -250,3 +250,88 @@ async def get_post_count():
     """Get total number of blog posts"""
     count = await BlogPost.all().count()
     return {"total_posts": count}
+
+@router.get("/face-exercises/data")
+async def get_face_exercise_data():
+    """Get all face exercise data: benefits, routines, and pro tips"""
+    benefits = await Benefit.all()
+    routines = await Routine.all()
+    tips = await ProTip.all()
+    
+    # If database is empty, we can return the initial data or empty lists
+    return {
+        "benefits": [await Benefit_Pydantic.from_tortoise_orm(b) for b in benefits],
+        "routines": [await Routine_Pydantic.from_tortoise_orm(r) for r in routines],
+        "proTips": [await ProTip_Pydantic.from_tortoise_orm(t) for t in tips]
+    }
+
+@router.post("/face-exercises/seed")
+async def seed_face_exercise_data():
+    """Seed the database with initial face exercise data if empty"""
+    if await Benefit.all().count() == 0:
+        benefits_data = [
+            {"title": "Improved Circulation", "description": "Facial exercises increase blood flow to skin cells, delivering oxygen and nutrients that give you a natural, healthy glow."},
+            {"title": "Reduced Wrinkles", "description": "Strengthening facial muscles from underneath plumps the skin, smoothing fine lines and preventing new ones from forming."},
+            {"title": "Better Muscle Tone", "description": "Just like body workouts, regular face yoga tones and lifts the 57 muscles in your face and neck for a naturally youthful look."},
+            {"title": "Stress Relief", "description": "Mindful facial movements release jaw tension, relax tight muscles, and activate the parasympathetic nervous system to calm your mind."}
+        ]
+        for b in benefits_data:
+            await Benefit.create(**b)
+
+    if await Routine.all().count() == 0:
+        routines_data = [
+            {
+                "icon": "🦁", "level": "Beginner", "title": "The Lion's Yawn", "target": "Jaw & Neck",
+                "steps": ["Sit comfortably and inhale deeply through your nose.", "Open your mouth as wide as possible, stick your tongue out and down.", "Roll your eyes upward and hold the stretch.", "Exhale with a 'haaa' sound and relax."],
+                "timing": "Hold 10 sec, repeat 5×"
+            },
+            {
+                "icon": "🍎", "level": "Beginner", "title": "Cheek Sculptor", "target": "Cheeks",
+                "steps": ["Puff your cheeks full of air.", "Transfer the air from one cheek to the other slowly.", "Hold the air in each cheek for 3 seconds.", "Release and repeat 10 times."],
+                "timing": "30 sec each side"
+            },
+            {
+                "icon": "✨", "level": "Beginner", "title": "Brow Smoother", "target": "Forehead",
+                "steps": ["Place your fingertips on your forehead, spanning from brow to hairline.", "Gently press down while trying to raise your eyebrows.", "Hold the tension for 3 seconds.", "Relax and repeat."],
+                "timing": "Repeat 10×"
+            },
+            {
+                "icon": "😮", "level": "Intermediate", "title": "Jaw Release", "target": "Jawline",
+                "steps": ["Sit straight and move your jaw as if chewing while keeping your lips closed.", "Hum as you do this, then open your mouth wide.", "Press your tongue against your lower teeth.", "Hold 5 seconds, close and repeat 10 times."],
+                "timing": "2 min daily"
+            },
+            {
+                "icon": "👁️", "level": "Beginner", "title": "Eye Opener", "target": "Eyes",
+                "steps": ["Make a large 'O' shape with your mouth to open your face.", "Raise your eyebrows as high as you can.", "Hold and stare at a point in the distance.", "Relax and repeat without moving your forehead."],
+                "timing": "Hold 5 sec, repeat 10×"
+            },
+            {
+                "icon": "🐟", "level": "Beginner", "title": "Fish Lips", "target": "Cheeks",
+                "steps": ["Suck in your cheeks and lips to make a 'fish face'.", "Try to smile while holding the position.", "Hold for 5 seconds and feel the burn.", "Relax completely and repeat."],
+                "timing": "Hold 5 sec, repeat 10×"
+            },
+            {
+                "icon": "🦢", "level": "Intermediate", "title": "Neck Toner", "target": "Neck",
+                "steps": ["Sit or stand straight with shoulders back.", "Tilt your head back and look at the ceiling.", "Press your tongue firmly to the roof of your mouth.", "Swallow and hold — feel the neck muscles engage."],
+                "timing": "Hold 10 sec, repeat 5×"
+            },
+            {
+                "icon": "🌊", "level": "Intermediate", "title": "Forehead Smoother", "target": "Forehead",
+                "steps": ["Place both palms flat against your forehead.", "Apply gentle outward pressure as you raise your brows.", "Slide your hands gently toward your temples.", "Hold 2 seconds at the temples and release."],
+                "timing": "Repeat 15× daily"
+            }
+        ]
+        for r in routines_data:
+            await Routine.create(**r)
+
+    if await ProTip.all().count() == 0:
+        tips_data = [
+            {"title": "Start with Clean Hands", "content": "Always wash your hands thoroughly before touching your face to prevent transferring bacteria and causing breakouts."},
+            {"title": "Use a Mirror", "content": "Practicing in front of a mirror ensures proper form and helps you target the correct muscle groups for maximum benefit."},
+            {"title": "Consistency Is Key", "content": "Aim for 10–20 minutes daily. Like any fitness routine, results come from regular, dedicated practice over weeks and months."},
+            {"title": "Pair with Facial Massage", "content": "After your routine, massage your face with a few drops of facial oil using upward strokes to boost circulation and lymphatic drainage."}
+        ]
+        for t in tips_data:
+            await ProTip.create(**t)
+            
+    return {"message": "Data seeded successfully"}
