@@ -7,13 +7,13 @@ const FaceExercise = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:8000/blog/face-exercises/data');
+        const response = await fetch('http://api.rychdesigns.uk/blog/face-exercises/data');
         const json = await response.json();
         
         // If the database is empty, seed it and fetch again
         if (json.benefits.length === 0 && json.routines.length === 0 && json.proTips.length === 0) {
-          await fetch('http://localhost:8000/blog/face-exercises/seed', { method: 'POST' });
-          const retryResponse = await fetch('http://localhost:8000/blog/face-exercises/data');
+          await fetch('http://api.rychdesigns.uk/blog/face-exercises/seed', { method: 'POST' });
+          const retryResponse = await fetch('http://api.rychdesigns.uk/blog/face-exercises/data');
           const retryJson = await retryResponse.json();
           setData(retryJson);
         } else {
