@@ -39,7 +39,12 @@ const Portfolio = () => {
           <div key={index} style={{ border: '1px solid #ccc', padding: '15px', borderRadius: '8px' }}>
             <h3>{project.title}</h3>
             <p>{project.description}</p>
-            <a href={project.link} target="_blank" rel="noopener noreferrer" style={{ color: '#007bff', textDecoration: 'none' }}>
+            <a 
+              href={project.link} 
+              target={project.link.startsWith('#') ? "_self" : "_blank"} 
+              rel="noopener noreferrer" 
+              style={{ color: '#007bff', textDecoration: 'none' }}
+            >
               View Project →
             </a>
           </div>
