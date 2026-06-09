@@ -62,7 +62,7 @@ services:
     depends_on:
       - backend
     environment:
-      VITE_API_URL: /api
+      VITE_API_URL: http://api.rychdesigns.uk
     volumes:
       - frontend_dist:/usr/share/nginx/html
 
