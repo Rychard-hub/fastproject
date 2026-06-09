@@ -1,4 +1,4 @@
-# ============================
+ ============================
 # GLOBAL IGNORE (ROOT PROJECT)
 # ============================
 
@@ -49,21 +49,3 @@ docker-compose.yml
 docker-data/
 certbot/
 certs/
-*.pid
-
-# Git
-.gitignore
-
-# Test / Coverage
-pytest_cache/
-.coverage
-htmlcov/
-.cache/
-
-# Documentation
-*.md
-
-# Misc
-*.tmp
-*.bak
-
