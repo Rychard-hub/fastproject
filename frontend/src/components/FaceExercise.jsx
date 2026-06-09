@@ -1,32 +1,40 @@
 import React, { useState, useEffect } from 'react';
 
+const API_URL = import.meta.env.VITE_API_URL || '';
+
 const FaceExercise = () => {
   const [data, setData] = useState({ benefits: [], routines: [], proTips: [] });
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('http://api.rychdesigns.uk/blog/face-exercises/data');
-        const json = await response.json();
+  const fetchData = async () => {
+    try {
+      console.log("Fetching face exercise data from:", `${API_URL}/blog/face-exercises/data`);
+      const response = await fetch(`${API_URL}/blog/face-exercises/data`);
+      if (!response.ok) throw new Error(`Failed to fetch data: ${response.status}`);
+      const json = await response.json();
+      
+      // If the database is empty, seed it and fetch again
+      if (json.benefits.length === 0 && json.routines.length === 0 && json.proTips.length === 0) {
+        console.log("Data empty, seeding...");
+        const seedResponse = await fetch(`${API_URL}/blog/face-exercises/seed`, { method: 'POST' });
+        if (!seedResponse.ok) throw new Error(`Failed to seed data: ${seedResponse.status}`);
         
-        // If the database is empty, seed it and fetch again
-        if (json.benefits.length === 0 && json.routines.length === 0 && json.proTips.length === 0) {
-          await fetch('http://api.rychdesigns.uk/blog/face-exercises/seed', { method: 'POST' });
-          const retryResponse = await fetch('http://api.rychdesigns.uk/blog/face-exercises/data');
-          const retryJson = await retryResponse.json();
-          setData(retryJson);
-        } else {
-          setData(json);
-        }
-      } catch (err) {
-        console.error("Failed to fetch face exercise data", err);
-      } finally {
-        setLoading(false);
+        const retryResponse = await fetch(`${API_URL}/blog/face-exercises/data`);
+        if (!retryResponse.ok) throw new Error(`Failed to fetch data after seeding: ${retryResponse.status}`);
+        const retryJson = await retryResponse.json();
+        setData(retryJson);
+      } else {
+        setData(json);
       }
-    };
+    } catch (err) {
+      console.error("Failed to fetch face exercise data", err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    fetchData();
+  useEffect(() => {
+    void fetchData();
   }, []);
 
   const { benefits, routines, proTips } = data;
