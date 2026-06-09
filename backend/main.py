@@ -52,7 +52,7 @@ async def health():
     return {"status": "ok"}
 
 
-@router.get("home/shop")
+@app.get("/home/shop")
 async def shop_home():
     return {"message": "Shop API working"}
 
