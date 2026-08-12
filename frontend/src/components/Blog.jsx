@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from 'react'
 import { useR2File } from "../hooks/useR2File";
+import { getAdminKey, setAdminKey, adminHeaders } from "../adminAuth";
 
 const API_URL = import.meta.env.VITE_API_URL || '';
 
@@ -123,7 +124,7 @@ export function AvatarUploader() {
     error,
     uploadFile,
     deleteFile
-  } = useR2File("http://api.rychdesigns.uk");
+  } = useR2File(API_URL);
 
   return (
     <div style={{ marginBottom: '20px', padding: '15px', border: '1px dashed #ccc', borderRadius: '8px' }}>
@@ -160,6 +161,43 @@ export function AvatarUploader() {
   );
 }
 
+function AdminLogin({ adminKey, onKeyChange }) {
+    const [input, setInput] = useState('');
+
+    if (adminKey) {
+        return (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '15px', fontSize: '14px', color: '#666' }}>
+                <span>🔓 Admin mode on</span>
+                <button
+                    type="button"
+                    onClick={() => onKeyChange('')}
+                    style={{ background: 'none', border: 'none', color: '#007bff', cursor: 'pointer', textDecoration: 'underline', padding: 0 }}
+                >
+                    Log out
+                </button>
+            </div>
+        );
+    }
+
+    return (
+        <form
+            onSubmit={(e) => { e.preventDefault(); onKeyChange(input); setInput(''); }}
+            style={{ display: 'flex', gap: '8px', alignItems: 'center', marginBottom: '15px' }}
+        >
+            <input
+                type="password"
+                placeholder="Admin key (leave empty to browse as visitor)"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                style={{ padding: '6px', fontSize: '13px', flex: 1 }}
+            />
+            <button type="submit" style={{ padding: '6px 12px', fontSize: '13px', cursor: 'pointer' }}>
+                Unlock admin
+            </button>
+        </form>
+    );
+}
+
 function Blog() {
     const [posts, setPosts] = useState([])
     const [title, setTitle] = useState('')
@@ -167,6 +205,7 @@ function Blog() {
     const [author, setAuthor] = useState('')
     const [file, setFile] = useState(null)
     const [loading, setLoading] = useState(true)
+    const [adminKey, setAdminKeyState] = useState(getAdminKey())
 
     const [error, setError] = useState('')
 
@@ -188,6 +227,11 @@ function Blog() {
     useEffect(() => {
         fetchPosts()
     }, [])
+
+    const handleAdminKeyChange = (key) => {
+        setAdminKey(key)
+        setAdminKeyState(key)
+    }
 
     const handleFileChange = (e) => {
         const selectedFile = e.target.files?.[0];
@@ -226,7 +270,9 @@ function Blog() {
             if (file && (file instanceof File || file instanceof Blob)) {
                 try {
                     // 1. Get presigned URL from backend
-                    const presignedRes = await fetch(`${API_URL}/blog/presigned-url?filename=${encodeURIComponent(file.name)}`);
+                    const presignedRes = await fetch(`${API_URL}/blog/presigned-url?filename=${encodeURIComponent(file.name)}`, {
+                        headers: adminHeaders()
+                    });
                     if (presignedRes.ok) {
                         const { url, file_path } = await presignedRes.json();
                         
@@ -264,17 +310,21 @@ function Blog() {
 
             const res = await fetch(`${API_URL}/blog/`, {
                 method: 'POST',
+                headers: adminHeaders(),
                 body: formData,
             });
-            
+
             if (res.ok) {
                 setTitle('')
                 setContent('')
                 setAuthor('')
                 setFile(null)
                 setError('')
-                e.target.reset(); 
+                e.target.reset();
                 fetchPosts()
+            } else if (res.status === 401) {
+                setError('Admin key is invalid. Please log in again.')
+                handleAdminKeyChange('')
             } else {
                 const errorData = await res.json();
                 setError(errorData.detail || 'Failed to create post');
@@ -290,9 +340,12 @@ function Blog() {
     return (
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
             <h1>Blog Posts</h1>
-            
-            <AvatarUploader />
-            
+
+            <AdminLogin adminKey={adminKey} onKeyChange={handleAdminKeyChange} />
+
+            {adminKey && <AvatarUploader />}
+
+            {adminKey && (
             <section style={{ marginBottom: '40px', padding: '20px', border: '1px solid #ccc', borderRadius: '8px' }}>
                 <h2>Create New Post</h2>
                 <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
@@ -346,6 +399,7 @@ function Blog() {
                     </button>
                 </form>
             </section>
+            )}
 
             <section>
                 {loading ? (

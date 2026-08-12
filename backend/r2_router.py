@@ -1,6 +1,7 @@
-from fastapi import APIRouter, UploadFile, File, Query, HTTPException
+from fastapi import APIRouter, Depends, UploadFile, File, Query, HTTPException
 from typing import Optional
 from r2_service import r2_service
+from auth import require_admin
 import uuid
 
 router = APIRouter(
@@ -8,7 +9,7 @@ router = APIRouter(
     tags=["r2"],
 )
 
-@router.post("/upload")
+@router.post("/upload", dependencies=[Depends(require_admin)])
 async def upload_file(
     file: UploadFile = File(...),
     folder: str = Query("uploads"),
@@ -50,7 +51,7 @@ async def get_signed_url(
     
     return {"url": url}
 
-@router.delete("/delete")
+@router.delete("/delete", dependencies=[Depends(require_admin)])
 async def delete_file(
     object_key: str = Query(..., description="The key of the object in R2")
 ):

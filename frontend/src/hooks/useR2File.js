@@ -1,5 +1,6 @@
 import { useState, useCallback } from "react";
 import { v4 as uuid } from "uuid";
+import { adminHeaders } from "../adminAuth";
 
 export const useR2File = (apiBase) => {
   const [url, setUrl] = useState("");
@@ -28,10 +29,11 @@ export const useR2File = (apiBase) => {
       // We use custom_key query param for our backend to use our generated key
       const res = await fetch(`${apiBase}/r2/upload?custom_key=${encodeURIComponent(key)}`, {
         method: "POST",
+        headers: adminHeaders(),
         body: formData,
       });
 
-      if (!res.ok) throw new Error("Upload failed");
+      if (!res.ok) throw new Error(res.status === 401 ? "Invalid admin key" : "Upload failed");
 
       const data = await res.json();
 
@@ -87,10 +89,10 @@ export const useR2File = (apiBase) => {
     try {
       const res = await fetch(
         `${apiBase}/r2/delete?object_key=${key}`,
-        { method: "DELETE" }
+        { method: "DELETE", headers: adminHeaders() }
       );
 
-      if (!res.ok) throw new Error("Delete failed");
+      if (!res.ok) throw new Error(res.status === 401 ? "Invalid admin key" : "Delete failed");
 
       setUrl("");
       setObjectKey("");

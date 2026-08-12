@@ -2,16 +2,18 @@
 Blog Post Router - Handles blog creation, reading, updating, and deletion
 Uses R2Service for file storage with fallback to local uploads
 """
-from fastapi import APIRouter, HTTPException, UploadFile, File, Form, Query, Path
+from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form, Query, Path
 from pydantic import BaseModel, Field
 from typing import List, Optional, Any, cast
 import os
 import shutil
 import asyncio
+import uuid
 from concurrent.futures import ThreadPoolExecutor
 
 from models import BlogPost, BlogPost_Pydantic, BlogPostIn_Pydantic, Benefit, Routine, ProTip, Benefit_Pydantic, Routine_Pydantic, ProTip_Pydantic
 from r2_service import r2_service
+from auth import require_admin
 
 router = APIRouter(
     prefix="/blog",
@@ -40,15 +42,20 @@ def save_local_file(file: UploadFile) -> str:
     """Save uploaded file to local storage (sync version for thread pool)"""
     if not file.filename:
         raise ValueError("Filename is missing")
-    
+
     # Ensure uploads directory exists
     os.makedirs(UPLOAD_DIR, exist_ok=True)
-    
-    file_path = os.path.join(UPLOAD_DIR, file.filename)
+
+    # Use only the basename and prefix with a UUID so a filename like
+    # "../../etc/passwd" can't escape UPLOAD_DIR and same-name uploads
+    # can't overwrite each other.
+    safe_name = os.path.basename(file.filename)
+    unique_name = f"{uuid.uuid4()}_{safe_name}"
+    file_path = os.path.join(UPLOAD_DIR, unique_name)
     with open(file_path, "wb") as buffer:
         shutil.copyfileobj(cast(Any, file.file), cast(Any, buffer))
-    
-    return f"/uploads/{file.filename}"
+
+    return f"/uploads/{unique_name}"
 
 
 def upload_to_r2(file_data: bytes, filename: str, content_type: str) -> str:
@@ -83,7 +90,7 @@ def generate_presigned_upload_url(filename: str, expiration: int = 3600) -> tupl
 
 # ============ REST Endpoints ============
 
-@router.get("/presigned-url", response_model=PresignedUrlResponse)
+@router.get("/presigned-url", response_model=PresignedUrlResponse, dependencies=[Depends(require_admin)])
 async def get_presigned_url(
     filename: str = Query(..., description="Filename for upload"),
     expiration: int = Query(3600, ge=60, le=86400, description="URL expiration in seconds (60-86400)")
@@ -117,7 +124,7 @@ async def get_presigned_url(
         raise HTTPException(status_code=500, detail=f"Error generating presigned URL: {str(e)}")
 
 
-@router.post("/", response_model=BlogPost_Pydantic)
+@router.post("/", response_model=BlogPost_Pydantic, dependencies=[Depends(require_admin)])
 async def create_post(
     title: str = Form(..., description="Post title"),
     content: str = Form(..., description="Post content"),
@@ -211,7 +218,7 @@ async def get_post(post_id: int = Path(..., gt=0)):
     return await BlogPost_Pydantic.from_tortoise_orm(post)
 
 
-@router.put("/{post_id}", response_model=BlogPost_Pydantic)
+@router.put("/{post_id}", response_model=BlogPost_Pydantic, dependencies=[Depends(require_admin)])
 async def update_post(
     post_id: int = Path(..., gt=0),
     post: BlogPostIn_Pydantic = None
@@ -231,7 +238,7 @@ async def update_post(
         raise HTTPException(status_code=500, detail=f"Failed to update post: {str(e)}")
 
 
-@router.delete("/{post_id}")
+@router.delete("/{post_id}", dependencies=[Depends(require_admin)])
 async def delete_post(post_id: int = Path(..., gt=0)):
     """Delete a blog post by ID"""
     existing_post = await BlogPost.get_or_none(id=post_id)

@@ -5,11 +5,12 @@ import stripe
 import os
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
-from fastapi import APIRouter, HTTPException, UploadFile, File, Form, Query
+from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form, Query
 from pydantic import BaseModel, Field
 from typing import List, Optional
 from models import Product, Product_Pydantic
 from r2_service import r2_service
+from auth import require_admin
 
 load_dotenv = __import__('dotenv').load_dotenv
 load_dotenv()
@@ -88,7 +89,7 @@ async def get_products(
     return products
 
 
-@router.post("/products/upload-image", response_model=ProductUploadResponse)
+@router.post("/products/upload-image", response_model=ProductUploadResponse, dependencies=[Depends(require_admin)])
 async def upload_product_image_endpoint(file: UploadFile = File(...)):
     """
     Upload a product image directly to R2
@@ -124,7 +125,7 @@ async def upload_product_image_endpoint(file: UploadFile = File(...)):
         raise HTTPException(status_code=500, detail=f"Failed to upload image: {str(e)}")
 
 
-@router.post("/banners/upload", response_model=BannerUploadResponse)
+@router.post("/banners/upload", response_model=BannerUploadResponse, dependencies=[Depends(require_admin)])
 async def upload_banner(file: UploadFile = File(...)):
     """
     Upload a shop banner image to R2
@@ -178,7 +179,7 @@ async def get_r2_status():
         }
 
 
-@router.get("/r2/files")
+@router.get("/r2/files", dependencies=[Depends(require_admin)])
 async def list_r2_files(prefix: str = Query("shop/", description="Folder prefix")):
     """List files in R2 storage"""
     if not r2_service.is_configured():
@@ -238,7 +239,7 @@ async def create_checkout_session(item: CreateCheckoutSessionRequest):
         raise HTTPException(status_code=500, detail=f"Stripe error: {str(e)}")
 
 
-@router.get("/seed-products")
+@router.get("/seed-products", dependencies=[Depends(require_admin)])
 async def seed_products():
     """
     Create sample products for the shop
