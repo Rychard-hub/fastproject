@@ -28,4 +28,4 @@ if not DATABASE_URL:
 # Ensure localhost/127.0.0.1 are replaced in Docker context
 if os.path.exists("/.dockerenv"):
     DATABASE_URL = DATABASE_URL.replace("localhost", "db").replace("127.0.0.1", "db")
-print(f"Database configured: {DB_USER}@{DB_HOST}:{DB_PORT}/{DB_NAME}")
+print(f"Database configured: {DATABASE_URL.split('@')[-1]}")
